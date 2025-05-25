@@ -1,0 +1,10 @@
+services:
+   scraper:
+       build:
+           context: .
+       env_file:
+           - .env
+       volumes:
+          - ./dumps:/app/dumps
+       restart: unless-stopped
+       entrypoint: ["tail", "-f", "/dev/null"]
